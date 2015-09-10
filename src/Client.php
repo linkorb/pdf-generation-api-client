@@ -2,9 +2,9 @@
 
 namespace PdfGenereationServer\ApiClient;
 
-use PdfGenereationServer\ApiClient\Model\SomeModel;
 use GuzzleHttp\Client as GuzzleClient;
 use PdfGenereationServer\ApiClient\Model\Template;
+use PdfGenereationServer\ApiClient\Model\File;
 
 class Client
 {
@@ -40,10 +40,18 @@ class Client
         $res = $guzzleclient->get($url, ['auth' => [$this->user, $this->password], 'headers' => ['content-type' =>
             'application/json']]);
 
-        if ($res->getStatusCode() == 200)
-            return 1;
-            //return json_decode($res->getBody(), true);
 
-        //return array();
+
+        if ($res->getStatusCode() == 200) {
+            $file = new File();
+            $content = base64_decode(json_decode($res->getBody(), true)['content']);
+
+            $file->setName($id.'.pdf');
+            $file->setMimeType('application/pdf');
+            $file->setContent($content);
+            $file->setSize(strlen($content));
+
+            return $file;
+        }
     }
 }
