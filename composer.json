@@ -1,0 +1,36 @@
+{
+    "name": "linkorb/pdfgenerationserver-apiclient",
+    "description": "LinkORB PdfGenerationServer ApiClient: The LinkORB project to interact via API with PdfGeneretaionServer",
+    "license": "MIT",
+    "type": "library",
+
+    "require": {
+        "php": ">=5.3",
+        "guzzlehttp/guzzle": "^6.0"
+    },
+
+    "require-dev": {
+        "ext-curl": "*"
+    },
+
+    "keywords": [ "linkorb", "twig template to pdf", "project", "php", "api client for pdfgenerationserver" ],
+
+    "authors": [
+        {
+            "name": "LinkORB",
+            "email": "engineering@linkorb.com",
+            "role": "Development"
+        },
+        {
+            "name": "Denis Alimov",
+            "email": "v03adk@gmail.com",
+            "role": "Development"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "PdfGenerationServer\\ApiClient\\": "src/"
+        }
+    }
+}
