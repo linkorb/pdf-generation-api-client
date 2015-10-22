@@ -24,8 +24,9 @@ class Client
     {
         $guzzleclient = new GuzzleClient();
 
-        $res = $guzzleclient->post($this->url.'/api/v1', ['auth' => [$this->user, $this->password], 'headers' => ['content-type' =>
-            'application/json'], 'body' => $template->serialize() ]);
+        $res = $guzzleclient->post($this->url.'/api/v1/'.$template->getAccountName().'/'.$template->getLibraryName().'/'.$template->getName(),
+                                   ['auth' => [$this->user, $this->password], 'headers' => ['content-type' =>
+                                        'application/json'], 'body' => $template->serialize() ]);
         if ($res->getStatusCode() == 201)
         {
             return json_decode($res->getBody(), true)['id'];
@@ -35,7 +36,7 @@ class Client
     public function downloadPdf($id)
     {
         $guzzleclient = new GuzzleClient();
-        $url = $this->url . '/api/v1/file/' . $id;
+        $url = $this->url . '/api/v1/document/' . $id;
 
         $res = $guzzleclient->get($url, ['auth' => [$this->user, $this->password], 'headers' => ['content-type' =>
             'application/json']]);

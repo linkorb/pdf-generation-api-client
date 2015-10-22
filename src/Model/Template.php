@@ -22,6 +22,8 @@ class Template
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
 
@@ -43,10 +45,54 @@ class Template
     public function setData($data)
     {
         $this->data = $data;
+
+        return $this;
     }
+
+    private $accountName;
+
+    /**
+     * @return mixed
+     */
+    public function getAccountName()
+    {
+        return $this->accountName;
+    }
+
+    /**
+     * @param mixed $accountName
+     */
+    public function setAccountName($accountName)
+    {
+        $this->accountName = $accountName;
+
+        return $this;
+    }
+
+
+    private $libraryName;
+
+    /**
+     * @return mixed
+     */
+    public function getLibraryName()
+    {
+        return $this->libraryName;
+    }
+
+    /**
+     * @param mixed $libraryName
+     */
+    public function setLibraryName($libraryName)
+    {
+        $this->libraryName = $libraryName;
+
+        return $this;
+    }
+
 
     public function serialize()
     {
-        return json_encode(array('template' => $this->name, 'data' => $this->data));
+        return json_encode($this->data);
     }
 }

@@ -12,7 +12,9 @@ $data['things'] = [];
 $data['things'][] = ['id' => 1, 'name' => 'Apple', 'description' => 'The round fruit of a tree of the rose family, which typically has thin green or red skin and crisp flesh.'];
 
 $template = new Template();
-$template->setName('things index part');
+$template->setAccountName('linkorb');
+$template->setLibraryName('test');
+$template->setName('things');
 $template->setData($data);
 
 $id = $client->generatePdf($template);

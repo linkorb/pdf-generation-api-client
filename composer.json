@@ -1,6 +1,7 @@
 {
     "name": "linkorb/pdfgenerationserver-apiclient",
     "description": "LinkORB PdfGenerationServer ApiClient: The LinkORB project to interact via API with PdfGeneretaionServer",
+    "homepage": "https://github.com/linkorb/pdf-generation-api-client",
     "license": "MIT",
     "type": "library",
 
